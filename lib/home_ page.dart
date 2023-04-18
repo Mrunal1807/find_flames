@@ -88,18 +88,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Color(0xFFFFEBEE).withOpacity(0.5),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child:Expanded(
-                        child:(CatalogModel.item!=null && CatalogModel.item.isNotEmpty)
-                            ?  ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder:(context, index) {
-                            return ItemWidget(item: CatalogModel.item[index]);
-                          },
-                          itemCount:CatalogModel.item.length,
-                        )
-                            :Center(
-                          child: CircularProgressIndicator(color: Colors.black54,),
-                        ),),),
+                      child:Flex(
+                        direction: Axis.horizontal,
+                        children:[ Expanded(
+                          child:(CatalogModel.item!=null && CatalogModel.item.isNotEmpty)
+                              ?  ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder:(context, index) {
+                              return ItemWidget(item: CatalogModel.item[index]);
+                            },
+                            itemCount:CatalogModel.item.length,
+                          )
+                              :Center(
+                            child: CircularProgressIndicator(color: Colors.black54,),
+                          ),),],
+                      ),),
                   Expanded(
                     child: Container(
                       height: 500,

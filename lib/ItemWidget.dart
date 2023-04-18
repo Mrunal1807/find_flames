@@ -70,8 +70,11 @@ class ItemWidget extends StatelessWidget {
               child:item.verify? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Text(item.name),
-               Image.asset("images/correct.png"),
+                Text(item.name ),
+               Container(
+                 height:13,
+                   width:13,
+                   child: Image.asset("images/correct.png")),
                 ],
                ):
                 Center(child: Text(item.name)),
